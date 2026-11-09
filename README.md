@@ -4,6 +4,8 @@
 
 Работает полностью в браузере — без бэкенда, авторизации и внешних API. Данные хранятся локально (localStorage).
 
+**Открыть приложение:** https://vladtapo4ek1312.github.io/MarginFlow/
+
 ## Стек
 
 - React + TypeScript
@@ -57,9 +59,11 @@ tests/           юнит-тесты Vitest
 В `vite.config.ts` задан относительный `base: './'`, поэтому сборка из `dist/` работает
 по адресу `https://<user>.github.io/<repo>/` без дополнительной настройки.
 
-1. `npm run build`
-2. Опубликовать содержимое `dist/` (например, через GitHub Actions
-   `actions/upload-pages-artifact` + `actions/deploy-pages`).
+Деплой автоматический: каждый пуш в `main` запускает `.github/workflows/deploy.yml` —
+линтер, тесты, проверку типов и сборку. Сайт обновляется, только если все проверки прошли.
+Запустить вручную: вкладка **Actions** → **Deploy to GitHub Pages** → **Run workflow**.
+
+В настройках репозитория (**Settings → Pages**) источником должен быть выбран **GitHub Actions**.
 
 ## Дизайн
 
